@@ -65,6 +65,13 @@ auto.create.topics.enable=false
 ```
 ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --group <group-name>
 ```
+
+### Consume messages With Kafka Headers
+
+```
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic library-events.DLT --from-beginning --property print.headers=true --property print.timestamp=true
+```
+
 </p>
 
 </details>
@@ -127,6 +134,13 @@ kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic 
 ```
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --group <group-name>
 ```
+
+### Consume messages With Kafka Headers
+
+```
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic library-events.DLT --from-beginning --property print.headers=true --property print.timestamp=true
+```
+
 </p>
 
 </details>
@@ -195,6 +209,11 @@ auto.create.topics.enable=false
 ./kafka-configs.sh  --bootstrap-server localhost:9092 --entity-type topics --entity-name library-events --alter --add-config min.insync.replicas=2
 ```
 
+## Alter the partitions of a topic
+```
+./kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic test-topic --partitions 40
+```
+
 ## Delete a topic
 
 ```
@@ -256,7 +275,10 @@ kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic <topic-nam
 ```
 kafka-configs.bat --bootstrap-server localhost:9092 --entity-type topics --entity-name library-events --alter --add-config min.insync.replicas=2
 ```
-
+## Alter the partitions of a topic
+```
+kafka-configs.bat --bootstrap-server localhost:9092 --alter --topic test-topic --partitions 40
+```
 
 ## Delete a topic
 
